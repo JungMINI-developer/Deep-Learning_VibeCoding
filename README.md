@@ -1,50 +1,204 @@
-# Deep-Learning_VibeCoding
+# ⚾ 야구용병 플랫폼
 
-명지대 3-2 딥러닝*바이브코딩*과제
+## 📋 프로젝트 소개
 
-# Getting Started with Create React App
+**야구용병 플랫폼**은 사회인야구 용병경기에 참여하고 싶은 선수들과 용병을 모집하는 주최자들을 연결하는 웹 애플리케이션입니다. 기존의 각각의 사회인야구리그 밴드에 가입해야 하는 불편함을 해결하고, 통합된 플랫폼에서 용병경기 정보를 확인하고 참여할 수 있도록 설계되었습니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🎯 주요 목적
 
-## Available Scripts
+- **통합 플랫폼**: 여러 밴드에 가입하지 않고도 모든 용병경기 정보를 한 곳에서 확인
+- **실시간 팀 구성**: 선공/후공 팀의 선수 배치와 참가 상태를 실시간으로 확인
+- **편리한 참여**: 간편한 필터링과 신청 시스템으로 원하는 경기에 쉽게 참여
+- **투명한 정보**: 경기 상세 정보, 야구장 시설, 참가비 등 모든 정보를 명확히 제공
 
-In the project directory, you can run:
+## 🛠 기술 스택
 
-### `npm start`
+### Frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React 18** - 사용자 인터페이스 구축
+- **TypeScript** - 타입 안정성과 개발 생산성 향상
+- **Tailwind CSS** - 반응형 디자인과 스타일링
+- **React Hooks** - 상태 관리 (useState, useEffect)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 개발 환경
 
-### `npm test`
+- **Create React App** - React 애플리케이션 초기 설정
+- **npm** - 패키지 관리
+- **ESLint** - 코드 품질 관리
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🏗 프로젝트 구조
 
-### `npm run build`
+```
+baseball-app/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/           # React 컴포넌트
+│   │   ├── Header.tsx       # 네비게이션 헤더
+│   │   ├── Login.tsx        # 로그인 폼
+│   │   ├── Signup.tsx       # 회원가입 폼
+│   │   ├── GameList.tsx     # 용병 경기 목록
+│   │   ├── VenueList.tsx    # 야구장 목록
+│   │   ├── TeamFormationPage.tsx  # 팀 구성 현황 페이지
+│   │   ├── TeamFormation.tsx      # 팀 구성 컴포넌트
+│   │   ├── GameParticipationModal.tsx  # 경기 참여 모달
+│   │   └── MyPage.tsx       # 마이페이지
+│   ├── data/
+│   │   └── mockData.ts      # 모의 데이터
+│   ├── types/
+│   │   └── index.ts         # TypeScript 타입 정의
+│   ├── App.tsx              # 메인 애플리케이션
+│   └── index.css            # 글로벌 스타일
+└── package.json
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✨ 주요 기능
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. 사용자 인증
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **로그인/회원가입**: 이메일 기반 계정 생성 및 로그인
+- **프로필 관리**: 포지션, 지역, 경력, 타석/투구 정보 관리
+- **마이페이지**: 개인 정보 확인 및 수정
 
-### `npm run eject`
+### 2. 용병 경기 관리
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **경기 목록**: 모든 용병경기 정보를 카드 형태로 표시
+- **필터링**: 날짜, 지역, 포지션, 실력 수준, 경기 유형별 필터
+- **경기 상세**: 경기 정보, 야구장 시설, 주최자 정보, 참가비 등
+- **참여 신청**: 포지션 선택 및 메시지 작성으로 경기 참여
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. 팀 구성 현황 (핵심 기능)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **실시간 팀 구성**: 선공팀(3루 덕아웃)과 후공팀(1루 덕아웃) 좌우 배치
+- **선수 배치**: 각 포지션별 선수 이름과 참가 상태 표시
+- **참가 상태**: 빈자리, 배정완료, 무료, 무료쿠폰사용, 입금완료
+- **참가자 수 연동**: 실제 팀 구성 데이터와 연동된 정확한 참가자 수
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4. 야구장 정보
 
-## Learn More
+- **야구장 목록**: 전국 야구장 정보 제공
+- **시설 정보**: 주차장, 샤워실, 매점, 응급실 등 시설 현황
+- **위치 정보**: 주소 및 지역별 분류
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📊 데이터 구조
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 핵심 엔티티
+
+- **User**: 사용자 정보 (이름, 이메일, 포지션, 지역, 경력 등)
+- **Venue**: 야구장 정보 (이름, 주소, 시설, 위치 등)
+- **Game**: 용병경기 정보 (제목, 날짜, 시간, 참가비, 상태 등)
+- **TeamFormation**: 팀 구성 (선공팀, 후공팀)
+- **PlayerAssignment**: 선수 배치 (포지션, 선수명, 상태)
+
+### 상태 관리
+
+- **AppState**: 전역 애플리케이션 상태 (로그인, 현재 페이지, 사용자)
+- **FilterState**: 필터링 상태 (경기, 야구장별 필터 옵션)
+
+## 🎨 UI/UX 특징
+
+### 디자인 원칙
+
+- **직관적 네비게이션**: 명확한 메뉴 구조와 페이지 전환
+- **반응형 디자인**: 모바일과 데스크톱 모두 최적화
+- **일관된 색상**: 파란색 계열의 통일된 브랜드 컬러
+- **카드 기반 레이아웃**: 정보를 쉽게 스캔할 수 있는 카드 형태
+
+### 주요 페이지
+
+1. **용병 경기**: 경기 목록과 필터링
+2. **팀 구성**: 실시간 팀 구성 현황 (메인 기능)
+3. **야구장**: 야구장 정보 및 시설
+4. **마이페이지**: 개인 정보 관리
+
+## 🚀 실행 방법
+
+```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 시작
+npm start
+
+# 프로덕션 빌드
+npm run build
+```
+
+## 📱 사용 방법
+
+1. **회원가입/로그인**: 이메일과 비밀번호로 계정 생성
+2. **경기 탐색**: "용병 경기" 메뉴에서 원하는 경기 찾기
+3. **팀 구성 확인**: "팀 구성" 메뉴에서 실시간 팀 현황 확인
+4. **경기 참여**: 원하는 경기 선택 후 포지션과 메시지 작성하여 신청
+5. **야구장 정보**: "야구장" 메뉴에서 전국 야구장 정보 확인
+
+## 🔮 향후 개발 계획
+
+### 단기 목표
+
+- **지도 연동**: 카카오맵 API를 통한 야구장 위치 표시
+- **실시간 업데이트**: WebSocket을 통한 실시간 팀 구성 업데이트
+- **알림 시스템**: 경기 참여 승인/거부 알림
+
+### 장기 목표
+
+- **백엔드 연동**: 실제 데이터베이스와 API 서버 구축
+- **결제 시스템**: 온라인 참가비 결제 기능
+- **리뷰 시스템**: 경기 후기 및 평점 시스템
+- **모바일 앱**: React Native를 통한 모바일 애플리케이션
+
+## 📈 기대 효과
+
+1. **사용자 편의성 향상**: 여러 밴드 가입 없이 통합 플랫폼에서 모든 정보 확인
+2. **투명한 정보 제공**: 실시간 팀 구성과 참가 상태로 명확한 정보 공유
+3. **용병 모집 효율성**: 체계적인 필터링과 신청 시스템으로 매칭 효율성 증대
+4. **커뮤니티 활성화**: 사회인야구 커뮤니티의 디지털 전환 촉진
+
+---
+
+## 📚 Create React App 문서
+
+이 프로젝트는 [Create React App](https://github.com/facebook/create-react-app)으로 부트스트랩되었습니다.
+
+### 사용 가능한 스크립트
+
+프로젝트 디렉토리에서 다음 명령어를 실행할 수 있습니다:
+
+#### `npm start`
+
+개발 모드에서 앱을 실행합니다.\
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 확인하세요.
+
+편집하면 페이지가 다시 로드됩니다.\
+콘솔에서 린트 오류도 확인할 수 있습니다.
+
+#### `npm test`
+
+대화형 감시 모드에서 테스트 러너를 실행합니다.\
+자세한 내용은 [테스트 실행](https://facebook.github.io/create-react-app/docs/running-tests) 섹션을 참조하세요.
+
+#### `npm run build`
+
+프로덕션용으로 앱을 빌드하여 `build` 폴더에 저장합니다.\
+React를 프로덕션 모드로 올바르게 번들링하고 최고의 성능을 위해 빌드를 최적화합니다.
+
+빌드가 축소되고 파일명에 해시가 포함됩니다.\
+앱이 배포할 준비가 되었습니다!
+
+자세한 내용은 [배포](https://facebook.github.io/create-react-app/docs/deployment) 섹션을 참조하세요.
+
+#### `npm run eject`
+
+**참고: 이것은 일방향 작업입니다. `eject`하면 되돌릴 수 없습니다!**
+
+빌드 도구와 구성 선택에 만족하지 않으면 언제든지 `eject`할 수 있습니다. 이 명령은 프로젝트에서 단일 빌드 종속성을 제거합니다.
+
+대신 모든 구성 파일과 전이 종속성(webpack, Babel, ESLint 등)을 프로젝트에 직접 복사하여 완전한 제어권을 갖게 됩니다. `eject`를 제외한 모든 명령은 여전히 작동하지만 복사된 스크립트를 가리키므로 조정할 수 있습니다. 이 시점에서는 혼자입니다.
+
+`eject`를 사용할 필요는 없습니다. 큐레이션된 기능 세트는 소규모 및 중간 배포에 적합하며, 이 기능을 사용할 의무는 없습니다. 하지만 준비가 되었을 때 사용자 정의할 수 없다면 이 도구가 유용하지 않을 것이라는 점을 이해합니다.
+
+## 더 알아보기
+
+[Create React App 문서](https://facebook.github.io/create-react-app/docs/getting-started)에서 더 자세히 알아볼 수 있습니다.
+
+React를 배우려면 [React 문서](https://reactjs.org/)를 확인하세요.
