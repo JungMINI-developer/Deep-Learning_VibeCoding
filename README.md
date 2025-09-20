@@ -1,3 +1,7 @@
+# Deep-Learning_VibeCoding
+
+명지대 3-2 딥러닝*바이브코딩*과제
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
